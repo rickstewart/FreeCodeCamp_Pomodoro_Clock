@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pomodoro Clock</title>
+  <!-- my stylesheet comes after Bootstrap css so I can override some of it  -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Maven+Pro:400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Javascript library adds needed browser vendor prefixes  -->
+  <!-- to automatically fix compatibility issues in older browsers -->
+  <script src="js/prefixfree%201.0.7.min.js"></script>
+</head>
+<body>
+
+<div id="main_container">
+
+  <div class="container">
+
+    <div class="title row">
+      <span class="col-xs-1 col-sm-3 col-md-3 col-lg-3"></span>
+
+      <div class="text col-xs-10 col-sm-6 col-md-6 col-lg-6">
+        <h1>Pomodoro Clock</h1>
+
+        <h3>
+          <a href="http://www.freecodecamp.com/challenges/zipline-build-a-pomodoro-clock" target="_blank">
+            a FreeCodeCamp Zipline</a>
+        </h3>
+      </div>
+      <span class="col-xs-1 col-sm-3 col-md-3 col-lg-3"></span>
+    </div>
+  </div>
+
+
+  <div class="container">
+
+    <div id="clock_container" class="row button-container">
+      <!--The 3 divs are ordered 'B' 'A' 'C' to make Bootstrap V3 'col-vp-push-x' and 'col-vp-pull-x' work. See this post for details:  -->
+      <!-- https://stackoverflow.com/questions/18057270/column-order-manipulation-using-col-lg-push-and-col-lg-pull-in-twitter-bootstrap -->
+
+      <div id="clock_span" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-push-4">
+        <div id="liveclock" class="outer_face ">
+          <div class="marker oneseven"></div>
+          <div class="marker twoeight"></div>
+          <div class="marker fourten"></div>
+          <div class="marker fiveeleven"></div>
+          <div class="inner_face">
+            <div class="hand hour"></div>
+            <div class="hand minute"></div>
+            <div class="hand second"></div>
+            <div id="work" class="hand work"></div>
+            <div id="break" class="hand break"></div>
+          </div>
+        </div>
+
+        <div id="controls" class="row button-container">
+          <span id="ctrl-play" class="btn popup" title="Start your Pomodoro" onclick="start()"><img
+              src="images/PlayHS.png"></span>
+          <span id="ctrl-stop" class="btn popup" title="Stop your Pomodoro" onclick="stop()"><img
+              src="images/StopHS.png"></span>
+          <span id="ctrl-repeat" class="btn popup" title="Reset to Default" onclick="reset()"><img
+              src="images/RepeatHS.png"></span>
+          <span id="ctrl-about" class="btn popup" title="Helpful Information" onclick="popOpenInfoWindow()"><img
+              src="images/Task-Inspector-Suggestion.png"></span>
+        </div>
+      </div>
+
+      <div id="work_length" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-pull-3">
+        <p class="bold">Work Duration:</p>
+        <span id="btn-work-left" class="btn glyphicon glyphicon-chevron-left" onclick="minusWorkTime()"></span>
+        <span id="display_work_timer"></span>
+        <span id="btn-work-right" class="btn glyphicon glyphicon-chevron-right" onclick="plusWorkTime()"></span>
+
+        <p>minutes</p>
+      </div>
+
+      <div id="break_length" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-pull-1">
+        <p class="bold">Break Duration:</p>
+        <span id="btn-break-left" class="btn glyphicon glyphicon-chevron-left" onclick="minusBreakTime()"></span>
+        <span id="display_play_timer"></span>
+        <span id="btn-break-right" class="btn glyphicon glyphicon-chevron-right" onclick="plusBreakTime()"></span>
+
+        <p>minutes</p>
+      </div>
+
+    </div> <!-- clock_container -->
+  </div> <!-- container-fluid -->
+</div> <!-- main container -->
+
+<!-- my javascript file comes after Bootstrap and JQuery js so I can override some of it -->
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
